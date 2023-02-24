@@ -126,8 +126,8 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
-<<<<<<< HEAD
 .pyre/
-=======
-.pyre/
->>>>>>> f523e10 (first realization)
+
+# History files
+history.json
+history.txt
