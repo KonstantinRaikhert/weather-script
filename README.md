@@ -6,14 +6,23 @@
 ### Подготовка к использованию:
 
 * Скопируйте репозиторий к себе:
-  `git clone https://github.com/KonstantinRaikhert/weather-script.git`
+
+`git clone https://github.com/KonstantinRaikhert/weather-script.git`
+
 * В каталоге найдите исполняемый скрипт `weather` и задайте ему соответсвующие права:
-  `chmod +x weatherchmod +x weather`
+
+  `chmod +x weather`
+
 * Для удобства создайте точку входа в приложение:
-  `sudo ln -s $(pwd)/weather /usr/local/bin/sudo ln -s $(pwd)/weather /usr/local/bin/`
-* Получите API ключ с бесплатного сайта [OpenWeather](https://openweathermap.org/https://openweathermap.org/) , создайте файл в корневом каталоге `.env` и задайте переменную:
+
+  `sudo ln -s $(pwd)/weather /usr/local/bin/`
+
+* Получите API ключ с бесплатного сайта [OpenWeather](https://openweathermap.org/) , создайте файл в корневом каталоге `.env` и задайте переменную:
+
   `OPEN_WEATHER_API_KEY=<Ваш API ключ>`
+
   Так же необходимо добавить в environments:
+  
   ```bash
   set -a
   source .env
