@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # History files
-history.json
 history.txt
+history.json
