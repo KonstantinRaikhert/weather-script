@@ -1,6 +1,7 @@
 # weather-script
 
 ![versions](https://img.shields.io/badge/python-3.9%20%7C%203.10-blue)
+
 Этот скрипт позволяет с консоли Unix систем узнать погоду в Вашем городе
 
 ### Подготовка к использованию:
@@ -22,7 +23,7 @@
   `OPEN_WEATHER_API_KEY=<Ваш API ключ>`
 
   Так же необходимо добавить в environments:
-  
+
   ```bash
   set -a
   source .env
