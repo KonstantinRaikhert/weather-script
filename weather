@@ -1,0 +1,44 @@
+#!/usr/bin/env python3.10
+from pathlib import Path
+
+from coordinates import get_gps_coordinates
+from exceptions import ApiServiceError, CantGetCoordinates, PathServiceError
+from history import (  # Noqa
+    JSONFileWeatherStorage,
+    PlainFileWeatherStorage,
+    save_weather,
+)
+from weather_api_service import get_weather
+from weather_formatter import format_weather
+
+
+def main():
+    try:
+        coordinates = get_gps_coordinates()
+    except CantGetCoordinates:
+        print("Не смог получить координаты местонахождения")
+        exit(1)
+    try:
+        weather = get_weather(coordinates)
+    except ApiServiceError:
+        print("Не смог получить погоду в API-сервиса погоды")
+        exit(1)
+
+    print(format_weather(weather))
+
+    try:
+        save_weather(
+            weather,
+            PlainFileWeatherStorage(Path.cwd() / "history.txt"),
+        )
+        save_weather(
+            weather,
+            JSONFileWeatherStorage(Path.cwd() / "history.json"),
+        )
+    except PathServiceError:
+        print("Не смог записать историю в файлы")
+        exit(1)
+
+
+if __name__ == "__main__":
+    main()
